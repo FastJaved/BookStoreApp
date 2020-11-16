@@ -32,7 +32,7 @@ class BookHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
         this.book = book
         Picasso.get().load(book.cover).into(itemView.findViewById<ImageView>(R.id.itemImage))
         itemView.findViewById<TextView>(R.id.itemName).text = book.title
-        itemView.findViewById<TextView>(R.id.itemPrice).text = book.price
+        itemView.findViewById<TextView>(R.id.itemPrice).text = book.price + " €"
     }
 
 

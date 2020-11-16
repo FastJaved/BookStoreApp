@@ -1,9 +1,11 @@
 package com.example.projetkotlin
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter(private val books: ArrayList<Book>)  : RecyclerView.Adapter<BookHolder>()  {
+class RecyclerAdapter(private val books: ArrayList<Book>,private val cellClickListener: CellClickListener
+)  : RecyclerView.Adapter<BookHolder>()  {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookHolder {
@@ -19,5 +21,8 @@ class RecyclerAdapter(private val books: ArrayList<Book>)  : RecyclerView.Adapte
         val itemBook = books[position]
         holder.bindBook(itemBook)
 
+        holder.itemView.setOnClickListener {
+            cellClickListener.onCellClickListener(itemBook)
+        }
     }
 }
