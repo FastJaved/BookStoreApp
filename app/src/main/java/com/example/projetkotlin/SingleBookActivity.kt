@@ -1,8 +1,11 @@
 package com.example.projetkotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,7 +21,7 @@ class SingleBookActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_book)
-
+        setSupportActionBar(toolbar)
         val book = intent.getParcelableExtra<Book>("book")
 
         val titleView = findViewById<TextView>(R.id.titleView)
@@ -29,7 +32,7 @@ class SingleBookActivity : AppCompatActivity() {
         if (book != null) {
             titleView.text = book.title
             priceView.text = book.price + " €"
-            synopsisView.text = book.synopsis.toString()
+            synopsisView.text = book.synopsis.joinToString()
             Picasso.get().load(book.cover).into(findViewById<ImageView>(R.id.coverView))
 
         }
@@ -45,4 +48,26 @@ class SingleBookActivity : AppCompatActivity() {
             }
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.shop){
+            if (basket.books.size > 0){
+                val intent = Intent(this@SingleBookActivity,CheckOut::class.java)
+                intent.putExtra("basket", basket)
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this, "Basket is empty", Toast.LENGTH_LONG).show()
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

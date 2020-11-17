@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -11,6 +12,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,11 +36,8 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         gridLayoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = gridLayoutManager
-        val appBar = findViewById<Toolbar>(R.id.toolbar3)
-        appBar.title = "Book Store"
 
-
-
+        setSupportActionBar(toolbar)
         val url = "http://henri-potier.xebia.fr/"
         val retrofit = Retrofit.Builder()
             .baseUrl(url)
@@ -67,5 +66,32 @@ class MainActivity : AppCompatActivity(), CellClickListener {
         startActivity(intent)
 
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+
+        if (id == R.id.shop){
+            if (basket.books.size > 0){
+                val intent = Intent(this@MainActivity,CheckOut::class.java)
+                intent.putExtra("basket", basket)
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this, "Basket is empty", Toast.LENGTH_LONG).show()
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 
 }
+
+
+
+
