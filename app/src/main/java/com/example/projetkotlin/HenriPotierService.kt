@@ -10,5 +10,5 @@ interface HenriPotierService {
     fun listBooks(): Call<List<Book>>
 
     @GET("books/{id}/commercialOffers")
-    fun getDiscount(@Path("id") id:String): Call<ResponseBody>
+    fun getDiscount(@Path("id") id:String): Call<Offer>
 }

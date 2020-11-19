@@ -6,32 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".CheckOut">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-
-        <ListView
-            android:id="@+id/checkout_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton2"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:clickable="true"
-            app:srcCompat="@drawable/shop" />
+            android:orientation="vertical">
 
-    </LinearLayout>
 
+            <ListView
+                android:id="@+id/checkout_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="559dp"></ListView>
+
+            <TextView
+                android:id="@+id/totaltextView"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:text="TOTAL"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/discountTextView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="DISCOUNT"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/finalTotalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FINAL TOTAL"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:baselineAligned="false"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/shop" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
