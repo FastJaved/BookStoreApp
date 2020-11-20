@@ -1,14 +1,13 @@
 package com.example.projetkotlin
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -86,6 +85,20 @@ class MainActivity : AppCompatActivity(), CellClickListener {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+            gridLayoutManager = GridLayoutManager(this, 3)
+            recyclerView.layoutManager = gridLayoutManager
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+            gridLayoutManager = GridLayoutManager(this, 2)
+            recyclerView.layoutManager = gridLayoutManager
+        }
     }
 
 

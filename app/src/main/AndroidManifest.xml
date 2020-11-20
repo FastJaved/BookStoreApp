@@ -14,7 +14,10 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".CheckOut"></activity>
         <activity android:name=".SingleBookActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
