@@ -6,6 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".CheckOut">
 
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/checkout_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="559dp"></ListView>
+
+                <TextView
+                    android:id="@+id/totaltextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:text="TOTAL"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/finalTotalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FINAL TOTAL"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/discountTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:text="DISCOUNT"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="0dp"
@@ -17,43 +71,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <ListView
-                android:id="@+id/checkout_list_view"
-                android:layout_width="match_parent"
-                android:layout_height="559dp"></ListView>
-
-            <TextView
-                android:id="@+id/totaltextView"
-                android:layout_width="match_parent"
-                android:layout_height="28dp"
-                android:text="TOTAL"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/discountTextView"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="DISCOUNT"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/finalTotalText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="FINAL TOTAL"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
 
     </RelativeLayout>
 
