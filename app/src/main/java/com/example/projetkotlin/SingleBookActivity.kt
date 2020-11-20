@@ -41,7 +41,7 @@ class SingleBookActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             if (book != null) {
-                Toast.makeText(this,book.title, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Added " + book.title, Toast.LENGTH_SHORT).show()
                 basket.books.add(book)
                 for (item in basket.books){
                 }
